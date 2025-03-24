@@ -8,7 +8,7 @@ def read_csv_data(filename):
     try:
         with open(filename, 'r', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
-            if reader.fieldnames:  # Check if the CSV has headers
+            if reader.fieldnames:
                 for row in reader:
                     data.append(row)
             else:
@@ -20,8 +20,12 @@ def read_csv_data(filename):
 @app.route('/')
 def dashboard():
     bins = read_csv_data('synthetic_data.csv')
-    regions = sorted(list(set(bin['Region'] for bin in bins if 'Region' in bin))) #Added region check
+    regions = sorted(list(set(bin['Region'] for bin in bins if 'Region' in bin)))
     return render_template('dashboard.html', bins=bins, regions=regions)
+
+@app.route('/hotspots')
+def hotspots():
+    return render_template('hotspots.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

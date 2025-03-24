@@ -9,62 +9,72 @@
 </head>
 
 <body>
-  <h1>Smart Waste Dashboard</h1>
+  <div class="glass-panel">
+    <div class="theme-selector">
+      <label for="theme-select">Select Theme:</label>
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+    <h1>Smart Waste Dashboard</h1>
 
-  <div id="region-select">
-    <label for="region">Select Region:</label>
-    <select id="region" onchange="updateMap()">
-      <option value="all">All Regions</option>
-      {% for region in regions %}
-      <option value="{{ region }}">{{ region }}</option>
-      {% endfor %}
-    </select>
-  </div>
+    <div id="region-select">
+      <label for="region">Select Region:</label>
+      <select id="region" onchange="updateMap()">
+        <option value="all">All Regions</option>
+        {% for region in regions %}
+        <option value="{{ region }}">{{ region }}</option>
+        {% endfor %}
+      </select>
+    </div>
 
-  <div id="table-controls">
-    <input type="text" id="filter-id" placeholder="Filter by Bin ID">
-    <input type="text" id="filter-location" placeholder="Filter by Location">
-    <button onclick="sortTable(true)">Sort by Fill Level (Ascending)</button>
-    <button onclick="sortTable(false)">Sort by Fill Level (Descending)</button>
+    <div id="table-controls">
+      <input type="text" id="filter-id" placeholder="Filter by Bin ID">
+      <input type="text" id="filter-location" placeholder="Filter by Location">
+      <button onclick="sortTable(true)">Sort by Fill Level (Ascending)</button>
+      <button onclick="sortTable(false)">Sort by Fill Level (Descending)</button>
 
-    <label><input type="checkbox" id="include-low" checked> Low Fill</label>
-    <label><input type="checkbox" id="include-medium" checked> Medium Fill</label>
-    <label><input type="checkbox" id="include-high" checked> High Fill</label>
-  </div>
+      <label><input type="checkbox" id="include-low" checked> Low Fill</label>
+      <label><input type="checkbox" id="include-medium" checked> Medium Fill</label>
+      <label><input type="checkbox" id="include-high" checked> High Fill</label>
+    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Bin ID</th>
-        <th>Location</th>
-        <th>Fill Level (%)</th>
-      </tr>
-    </thead>
-    <tbody id="bin-table-body">
-      {% for bin in bins %}
-      <tr>
-        <td>{{ bin['Bin ID'] }}</td>
-        <td>{{ bin['Location'] }}</td>
-        <td>{{ bin['Fill Level'] }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <table>
+      <thead>
+        <tr>
+          <th>Bin ID</th>
+          <th>Location</th>
+          <th>Fill Level (%)</th>
+        </tr>
+      </thead>
+      <tbody id="bin-table-body">
+        {% for bin in bins %}
+        <tr>
+          <td>{{ bin['Bin ID'] }}</td>
+          <td>{{ bin['Location'] }}</td>
+          <td>{{ bin['Fill Level'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
-
-  <div class="controls">
-    <button onclick="calculateRoute()">Calculate Optimal Route</button>
-    <button onclick="clearAll()">Clear All Markers</button>
-  </div>
-  <div id="map" data-bins='{{ bins|tojson|safe }}'></div>
-  <div id="route-info">
-    <p>Total Route Distance: <span id="distance-value">0</span> km</p>
+    <div class="controls">
+      <button onclick="calculateRoute()">Calculate Optimal Route</button>
+      <button onclick="clearAll()">Clear All Markers</button>
+      <a href="{{ url_for('hotspots') }}">Go to Hotspot Prediction</a>
+    </div>
+    <div id="map" data-bins='{{ bins|tojson|safe }}'></div>
+    <div id="route-info">
+      <p>Total Route Distance: <span id="distance-value">0</span> km</p>
+    </div>
   </div>
 
   <canvas id="fillLevelChart" width="400" height="200"></canvas>
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
 </body>
 
 </html>
