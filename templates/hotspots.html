@@ -4,6 +4,7 @@
 <head>
   <title>Hotspot Prediction</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
@@ -16,12 +17,27 @@
       </select>
     </div>
     <h1>Hotspot Prediction</h1>
-    <p>This page will display predicted garbage hotspots.</p>
-
+    <p>Predicted Garbage Hotspots (Average Fill > 70%)</p>
+    <div id="hotspot-map" style="height: 600px;"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Bin ID</th>
+          <th>Location</th>
+          <th>Average Fill (%)</th>
+          <th>Region</th>
+        </tr>
+      </thead>
+      <tbody id="hotspot-table-body">
+      </tbody>
+    </table>
     <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
   </div>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    let hotspots = {{ hotspots | tojson | safe }}; // Correct: No quotes
+  </script>
+  <script src="{{ url_for('static', filename='hotspots.js') }}"></script>
   <script src="{{ url_for('static', filename='theme.js') }}"></script>
 </body>
 

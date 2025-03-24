@@ -62,7 +62,7 @@
     <div class="controls">
       <button onclick="calculateRoute()">Calculate Optimal Route</button>
       <button onclick="clearAll()">Clear All Markers</button>
-      <a href="{{ url_for('hotspots') }}">Go to Hotspot Prediction</a>
+      <a href="{{ url_for('hotspots_data') }}">Go to Hotspot Prediction</a>
     </div>
     <div id="map" data-bins='{{ bins|tojson|safe }}'></div>
     <div id="route-info">
