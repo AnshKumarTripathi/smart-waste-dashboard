@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Hotspot Prediction</title>
+  <title>🔥 Hotspot Prediction</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
@@ -10,32 +10,32 @@
 <body>
   <div class="glass-panel">
     <div class="theme-selector">
-      <label for="theme-select">Select Theme:</label>
+      <label for="theme-select">🌓 Theme:</label>
       <select id="theme-select">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
+        <option value="light">☀️ Light</option>
+        <option value="dark">🌙 Dark</option>
       </select>
     </div>
-    <h1>Hotspot Prediction</h1>
-    <p>Predicted Garbage Hotspots (Average Fill > 70%)</p>
+    <h1>🔥 Hotspot Prediction</h1>
+    <p>🚨 Predicted Garbage Hotspots (Avg Fill > 70%)</p>
     <div id="hotspot-map" style="height: 600px;"></div>
     <table>
       <thead>
         <tr>
-          <th>Bin ID</th>
-          <th>Location</th>
-          <th>Average Fill (%)</th>
-          <th>Region</th>
+          <th>🗑️ Bin ID</th>
+          <th>📍 Location</th>
+          <th>🎚️ Avg Fill (%)</th>
+          <th>🌐 Region</th>
         </tr>
       </thead>
       <tbody id="hotspot-table-body">
       </tbody>
     </table>
-    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <a href="{{ url_for('dashboard') }}">↩️ Back to Dashboard</a>
   </div>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
-    let hotspots = {{ hotspots | tojson | safe }}; // Correct: No quotes
+    let hotspots = {{ hotspots | tojson | safe }};
   </script>
   <script src="{{ url_for('static', filename='hotspots.js') }}"></script>
   <script src="{{ url_for('static', filename='theme.js') }}"></script>

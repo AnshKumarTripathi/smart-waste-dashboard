@@ -33,7 +33,6 @@ def hotspots_data():
                 hotspots.append(row)
     except FileNotFoundError:
         print("hotspot_data.csv not found.")
-    # render the template and pass the data
     return render_template('hotspots.html', hotspots=hotspots)
 
 if __name__ == '__main__':

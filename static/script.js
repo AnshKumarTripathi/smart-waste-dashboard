@@ -281,13 +281,10 @@ function createMapLegend() {
   legend.addTo(map);
 }
 
-// Add event listeners to input fields for filtering.
 document.getElementById("filter-id").addEventListener("input", filterTable);
 document
   .getElementById("filter-location")
   .addEventListener("input", filterTable);
-
-// Add event listener to region selection.
 document.getElementById("region").addEventListener("change", updateMap);
 
 // Initialize map when page loads
