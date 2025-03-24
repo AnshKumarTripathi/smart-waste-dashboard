@@ -122,10 +122,20 @@ async function calculateRoute() {
 
     const distanceKm = (routeData.distance / 1000).toFixed(2);
     document.getElementById("distance-value").textContent = distanceKm;
+
+    // Fuel consumption calculation and display
+    const fuelRate = 0.3; // Liters per kilometer (adjust as needed)
+    const fuelConsumed = distanceKm * fuelRate;
+    document.getElementById("fuel-consumed-value").textContent =
+      fuelConsumed.toFixed(2);
+    document.getElementById("fuel-rate-value").textContent =
+      fuelRate.toFixed(2);
   } catch (error) {
     console.error("Routing error:", error);
     alert("Error calculating route: " + error.message);
     document.getElementById("distance-value").textContent = "0";
+    document.getElementById("fuel-consumed-value").textContent = "0";
+    document.getElementById("fuel-rate-value").textContent = "0.3"; //reset fuel rate.
   }
 }
 
