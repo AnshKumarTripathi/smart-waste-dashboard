@@ -1,0 +1,84 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#map {
+  height: 600px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#route-info {
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#distance-value {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* ... (Your existing style.css code) ... */
+
+.info.legend {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.info.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.8;
+}

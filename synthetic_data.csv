@@ -1,0 +1,13 @@
+Bin ID,Location,Fill Level,Latitude,Longitude,Region
+1,Market Area A,75,23.0225,72.5714,Region 1
+2,Residential Zone B,30,23.03,72.58,Region 1
+3,Commercial Street C,90,23.04,72.57,Region 1
+4,Park D,50,23.05,72.58,Region 1
+5,Hospital Area E,20,23.2,72.6,Region 2
+6,Industrial Zone F,80,23.21,72.61,Region 2
+7,School Area G,60,23.22,72.6,Region 2
+8,Mall Area H,40,23.23,72.61,Region 2
+9,Downtown I,95,22.9,72.5,Region 3
+10,Uptown J,10,22.91,72.51,Region 3
+11,Suburb K,70,22.92,72.5,Region 3
+12,Rural L,35,22.93,72.51,Region 3
